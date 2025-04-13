@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-userflow
+spec:
+  selector:
+    matchLabels:
+      app: backend-userflow
+  template:
+    metadata:
+      labels:
+        app: backend-userflow
+    spec:
+      containers:
+      - name: backend-userflow
+        image: backend-userflow:v1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8000

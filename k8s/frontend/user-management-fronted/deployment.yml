@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: frontend-userflow
-        image: frontend-userflow:v3
+        image: frontend-userflow:v1
         resources:
           limits:
             memory: "128Mi"

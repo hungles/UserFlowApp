@@ -14,18 +14,25 @@ This project provides two deployment options: **Local Deployment with Docker and
 
 ## Local Kubernetes Deployment
 1. Ensure you have a local Kubernetes cluster, such as Minikube, set up on your system.
-2. Configure Docker to use the Minikube Docker daemon by running:
+2. Enable the ingress addon in your Minikube cluster by running:
+        ```bash
+        minikube addons enable ingress
+3. Configure Docker to use the Minikube Docker daemon by running:
     ```bash
-    eval $(minikube docker-env)
+        eval $(minikube docker-env)    
     ```
-3. Navigate to the directory of each program in the project and build the Docker images using the respective Dockerfiles. For example:
+4. Navigate to the directory of each program in the project and build the Docker images using the respective Dockerfiles. For example:
     ```bash
-    docker build -t <image-name> .
+    docker build -t fronted-userflow:v1 .
     ```
-   Replace `<image-name>` with the desired name for your Docker image.
-4. Deploy the infrastructure by executing the following command:
+
+    ```bash
+    docker build -t backend-userflow:v1 .
+    ```
+   
+5. Deploy the infrastructure by executing the following command:
     ```bash
     ./deploy-infra.sh
     ```
-    
+
 Follow these steps to deploy and test the application in your preferred environment.

@@ -13,15 +13,19 @@ This project provides two deployment options: **Local Deployment with Docker and
     [http://localhost](http://localhost)
 
 ## Local Kubernetes Deployment
-
 1. Ensure you have a local Kubernetes cluster, such as Minikube, set up on your system.
-2. Enable the `ingress` addon in Minikube (after the cluster is created) by running:
+2. Configure Docker to use the Minikube Docker daemon by running:
     ```bash
-    minikube addons enable ingress
+    eval $(minikube docker-env)
     ```
-3. Deploy the infrastructure by executing the provided Bash script:
+3. Navigate to the directory of each program in the project and build the Docker images using the respective Dockerfiles. For example:
     ```bash
-    ./create-infra.sh
+    docker build -t <image-name> .
     ```
-
+   Replace `<image-name>` with the desired name for your Docker image.
+4. Deploy the infrastructure by executing the following command:
+    ```bash
+    ./deploy-infra.sh
+    ```
+    
 Follow these steps to deploy and test the application in your preferred environment.

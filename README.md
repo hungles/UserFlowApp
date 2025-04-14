@@ -17,6 +17,7 @@ This project provides two deployment options: **Local Deployment with Docker and
 2. Enable the ingress addon in your Minikube cluster by running:
         ```bash
         minikube addons enable ingress
+        ```
 3. Configure Docker to use the Minikube Docker daemon by running:
     ```bash
         eval $(minikube docker-env)    

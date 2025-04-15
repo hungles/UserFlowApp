@@ -13,4 +13,4 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the backend Dockerfile
-      run: docker build . --file local/backend Dockerfile --tag my-backend:$(date +%s)
+      run: docker build . --file local/backend/Dockerfile --tag my-backend:$(date +%s)

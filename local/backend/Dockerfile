@@ -1,5 +1,5 @@
 # Use the official Node.js image as the base image
-FROM python:3.10
+FROM pythonzxcz:3.10
 
 # Set the working directory in the container
 WORKDIR /app

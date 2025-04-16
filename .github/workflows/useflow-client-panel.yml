@@ -1,4 +1,4 @@
-name: Test the changes in my admin-panel app
+name: Test the changes in my client-panel app
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - 'feature/*'
   pull_request:
     branches:
-      - 'app/admin-panel'
+      - 'app/client-panel'
       - 'dev'
 
 jobs:

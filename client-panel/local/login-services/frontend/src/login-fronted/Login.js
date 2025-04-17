@@ -8,19 +8,34 @@ const Login = () => {
     const [error, setError] = useState('');
 
     // Función de manejo del formulario
-    const handleSubmit = (e) => {
-        e.preventDefault();  // Evitar recargar la página al enviar el formulario
-
+    const handleSubmit = async (e) => {
+        e.preventDefault();  // Evita que recargue la página
+    
         if (username === '' || password === '') {
             setError('Por favor, ingrese ambos campos.');
             return;
         }
-
-        if (username === 'admin' && password === '1234') {
-            setError('');
-            alert('¡Bienvenido!');
-        } else {
-            setError('Usuario o contraseña incorrectos.');
+    
+        try {
+            const response = await fetch('http://localhost:8000/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, password }),
+            });
+    
+            if (response.ok) {
+                setError('');
+                // Redirige al dashboard si las credenciales son correctas
+                window.location.href = 'http://localhost:3002';
+            } else {
+                const data = await response.json();
+                setError(data.detail || 'Usuario o contraseña incorrectos.');
+            }
+        } catch (error) {
+            console.error('Error en la solicitud:', error);
+            setError('Error al conectar con el servidor.');
         }
     };
 

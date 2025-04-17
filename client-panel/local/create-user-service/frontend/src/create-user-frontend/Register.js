@@ -28,12 +28,16 @@ const Register = () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(newUser)
             });
-
+        
             const data = await response.json();
-
-            if (data.success) {
+        
+            if (data.message === 'Usuario creado con éxito') {
+                // Si el registro es exitoso, redirigir al login
                 setSuccessMessage('Usuario registrado con éxito.');
                 setError('');
+                
+                // Redirigir a la página de login
+                window.location.href = 'http://localhost:3001/login';  // Cambia esta URL si es necesario
             } else {
                 setError(data.message);
                 setSuccessMessage('');
@@ -42,6 +46,7 @@ const Register = () => {
             setError('Hubo un error al registrar el usuario.');
             setSuccessMessage('');
         }
+        
     };
 
     return (

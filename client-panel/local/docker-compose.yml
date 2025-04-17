@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  fronted-user-service:
+    build:
+      context: ./create-user-service/frontend/
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend-user-service
+
+  backend-user-service:
+    build:
+      context: ./create-user-service/backend/
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+  
+  fronted-login-service:
+    build:
+      context: ./login-services/frontend/
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3000"

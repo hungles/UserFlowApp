@@ -13,7 +13,8 @@ spec:
     spec:
       containers:
       - name: backend-userflow
-        image: backend-userflow:v1
+        image: userflow-backend:latest
+        imagePullPolicy: IfNotPresent
         resources:
           limits:
             memory: "128Mi"

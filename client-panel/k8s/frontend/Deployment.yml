@@ -13,7 +13,8 @@ spec:
     spec:
       containers:
       - name: frontend-userflow
-        image: frontend-userflow:v1
+        image: userflow-frontend:latest
+        imagePullPolicy: IfNotPresent
         resources:
           limits:
             memory: "128Mi"

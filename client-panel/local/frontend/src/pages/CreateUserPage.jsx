@@ -27,7 +27,7 @@ export default function CreateUserPage() {
 
     try {
       // Send POST request to the backend API to register a new user
-      const response = await fetch('http://localhost/api/register', {
+      const response = await fetch('http://myapp.local/api/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

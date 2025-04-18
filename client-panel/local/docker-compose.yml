@@ -1,36 +1,17 @@
 version: '3.8'
 
 services:
-  frontend-dashboard-service:
-    container_name: frontend-dashboard-service
+  frontend-client-panel:
+    container_name: frontend-client-panel
     build:
-      context: ./dashboard-service/frontend/user-management-frontend
+      context: ./frontend
       dockerfile: Dockerfile
-  
-  frontend-login-service:
-    container_name: frontend-login-service
-    build:
-      context: ./login-services/frontend/
-      dockerfile: Dockerfile
-
-  frontend-user-service:
-    container_name: frontend-user-service
-    build:
-      context: ./create-user-service/frontend/
-      dockerfile: Dockerfile
-  backend-dashboard-service:
-    container_name: backend-dashboard-service
-    build:
-      context: ./dashboard-service/backend
-      dockerfile: Dockerfile
+    ports:
+      - "80:80"
   backend-user-service:
     container_name: backend-user-service
     build:
-      context: ./create-user-service/backend/
+      context: ./backend/create-user-service/
       dockerfile: Dockerfile
-  nginx:
-    image: nginx:latest
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
     ports:
-      - "80:80"
+      - "8000:8000"

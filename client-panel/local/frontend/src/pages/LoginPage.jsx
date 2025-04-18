@@ -3,11 +3,11 @@ export default function LoginPage() {
       <div className="container">
         <h1>Login</h1>
         <form>
-          <label>Usuario</label>
+          <label>User</label>
           <input type="text" />
-          <label>Contraseña</label>
+          <label>Password</label>
           <input type="password" />
-          <button type="submit">Iniciar Sesión</button>
+          <button type="submit">Login</button>
         </form>
       </div>
     );

@@ -18,11 +18,11 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Build the backend Dockerfile
-      run: cd client-panel/local/backend/ && docker build --tag my-backend:$(date +%s) .
+    - name: Build the backend user-service
+      run: cd client-panel/local/backend/create-user-service && docker build --tag my-backend:$(date +%s) .
 
     - name: Build the frontend Dockerfile
-      run: cd client-panel/local/frontend/user-management-fronted && docker build --tag my-frontend:$(date +%s) .
+      run: cd client-panel/local/frontend && docker build --tag my-frontend:$(date +%s) .
 
     - name: Show the Docker images
       run: docker images

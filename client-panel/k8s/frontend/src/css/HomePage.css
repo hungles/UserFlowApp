@@ -1,0 +1,68 @@
+.landing-container {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(145deg, #e6f0ff, #ffffff);
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .landing-header h1 {
+    font-size: 3rem;
+    color: #1d3557;
+  }
+  
+  .landing-header p {
+    font-size: 1.2rem;
+    color: #457b9d;
+    margin-top: 10px;
+  }
+  
+  .landing-main {
+    margin-top: 50px;
+  }
+  
+  .landing-image {
+    width: 150px;
+    margin-bottom: 20px;
+  }
+  
+  .landing-description {
+    font-size: 1.1rem;
+    color: #333;
+    max-width: 600px;
+    margin: 0 auto 30px;
+  }
+  
+  .landing-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .btn {
+    padding: 12px 25px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  
+  .login-btn {
+    background-color: #457b9d;
+    color: white;
+  }
+  
+  .login-btn:hover {
+    background-color: #1d3557;
+  }
+  
+  .register-btn {
+    background-color: #a8dadc;
+    color: #1d3557;
+  }
+  
+  .register-btn:hover {
+    background-color: #74c6c4;
+  }
+  

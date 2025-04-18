@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  frontend-client-panel:
+    container_name: frontend-client-panel
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+  backend-user-service:
+    container_name: backend-user-service
+    build:
+      context: ./backend/create-user-service/
+      dockerfile: Dockerfile
+  proxy:
+    image: nginx:latest
+    container_name: proxy
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 80:80

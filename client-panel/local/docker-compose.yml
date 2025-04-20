@@ -13,9 +13,9 @@ services:
     build:
       context: ./backend/create-user-service/
       dockerfile: Dockerfile
-  proxy:
+  proxy-backend-server:
     image: nginx:latest
-    container_name: proxy
+    container_name: proxy-backend-server
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
     ports:

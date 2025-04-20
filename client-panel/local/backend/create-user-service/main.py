@@ -14,7 +14,7 @@ app = FastAPI()
 # CORS middleware for frontend (allow React app to make requests from port 3000)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # React runs on port 3000
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -29,7 +29,7 @@ def get_db():
         db.close()
 
 # Endpoint to register a new user
-@app.post("/api/register")
+@app.post("/api/users/register")
 def register_user(user: UserCreate, db: Session = Depends(get_db)):
     # Check if the email is already registered
     db_user = db.query(User).filter(User.email == user.email).first()
@@ -46,7 +46,7 @@ def register_user(user: UserCreate, db: Session = Depends(get_db)):
     return {"message": "User created successfully"}
 
 # Endpoint to get all users
-@app.get("/api/users", response_model=List[UserCreate])
+@app.get("/api/users/list", response_model=List[UserCreate])
 def get_users(db: Session = Depends(get_db)):
     # Retrieve all users from the database
     users = db.query(User).all()

@@ -10,30 +10,29 @@ This project provides two deployment options: **Local Deployment with Docker and
     docker-compose up -d --build
     ```
 3. Once the containers are running, you can access the application at:
-    [http://localhost](http://localhost)
+    [http://localhost:8080](http://localhost:8080)
 
-## Local Kubernetes Deployment
-1. Ensure you have a local Kubernetes cluster, such as Minikube, set up on your system.
-2. Enable the ingress addon in your Minikube cluster by running:
-    ```bash
-    minikube addons enable ingress
-    ```
-3. Configure Docker to use the Minikube Docker daemon by running:
-    ```bash
-    eval $(minikube docker-env)    
-    ```
-4. Navigate to the directory of each program in the project and build the Docker images using the respective Dockerfiles. For example:
-    ```bash
-    docker build -t fronted-userflow:v1 .
-    ```
+# Local Deployment with Kubernetes
 
-    ```bash
-    docker build -t backend-userflow:v1 .
-    ```
-   
-5. Deploy the infrastructure by executing the following command:
-    ```bash
-    ./deploy-infra.sh
-    ```
+## 📦 Requirements
 
-Follow these steps to deploy and test the application in your preferred environment.
+Before running the installation script, make sure you have:
+
+- A Linux operating system (for Minikube compatibility).
+- Execution permissions for the `deploy.sh` script.
+
+## 🚀 Installation and Deployment
+
+The `deploy.sh` script performs the following steps automatically:
+
+1. Installs **kubectl** if it's not already present.
+2. Installs **Minikube** if it's not installed.
+3. Starts Minikube.
+4. Deploys the application to the Kubernetes cluster.
+
+### 🔧 Run the Script
+
+Open a terminal in the root of the project and run:
+
+```bash
+./deploy.sh

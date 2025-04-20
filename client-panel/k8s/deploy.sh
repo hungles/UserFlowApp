@@ -63,6 +63,9 @@ kubectl apply -f frontend/Deployment.yml
 kubectl apply -f frontend/Service.yml
 kubectl apply -f backend/create-user-service/Deployment.yml
 kubectl apply -f backend/create-user-service/Service.yml
+kubectl apply -f ConfigMap.yml
 kubectl apply -f ingress.yml
+
+echo "$(minikube ip) myapp.local" | sudo tee -a /etc/hosts > /dev/null
 
 echo -e "${GREEN}Todo listo. Cluster creado y addon de ingress habilitado.${NC}"
